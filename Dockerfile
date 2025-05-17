@@ -1,9 +1,9 @@
 FROM php:8.1-cli
 
-WORKDIR /var/www/html
+WORKDIR /app
 COPY . .
 
 EXPOSE 10000
 
-CMD ["php", "-S", "0.0.0.0:10000", "-t", "/var/www/html"]
+CMD ["php", "-S", "0.0.0.0:10000", "-t", "ngb-app/backend"]
 
