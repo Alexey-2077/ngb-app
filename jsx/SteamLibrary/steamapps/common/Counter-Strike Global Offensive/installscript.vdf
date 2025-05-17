@@ -1,0 +1,18 @@
+"installscript"
+{
+	"utf8_registry_strings"		"1"
+	"registry"
+	{
+		"hkey_local_machine\\software\\valve\\cs2"
+		{
+			"string"
+			{
+				"installpath"		"%INSTALLDIR%"
+			}
+		}
+	}
+}
+"kvsignatures"
+{
+	"installscript"		"8a80c9a3a8ab75b8f133929a0e89978531d7e49a074d6a305ca47097c268f18c6522ccca65138f831f327afcbcaea43cee8e6861f353c597c86feab0c2fd6562bd3ab6c72ad34e861e421315af3054c76933c9d882d9476bde6098152a5bedfcd2103591a91b27bb95c8c1d4519684542790e6cbd93144e8a5b77ec8298f80cd"
+}

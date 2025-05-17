@@ -1,0 +1,476 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #111111;
+  margin: 0;
+  padding: 0;
+}
+
+.max-w-md {
+  background: #18181b;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.max-w-md:hover {
+  transform: translateY(-3px);
+}
+
+.grid.grid-cols-3 {
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.bg-white,
+.bg-gray-100 {
+  background: #23232a !important;
+  color: #f3f4f6;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0006;
+}
+
+.text-xl, .text-lg, .text-sm {
+  color: #f3f4f6;
+}
+
+.rounded-2xl, .rounded-lg, .rounded-xl {
+  border-radius: 16px !important;
+}
+
+.shadow-lg, .shadow, .shadow-md {
+  box-shadow: 0 2px 12px #0008 !important;
+}
+
+/* Убираем любые синие рамки, фон и тени у всех кнопок */
+button, .blob-btn, .nav-blob-btn, .percent-button {
+  border: 2px solid #333 !important;
+  color: #f3f4f6;
+  background: #23232a !important;
+  box-shadow: none !important;
+}
+
+button:hover, .blob-btn:hover, .nav-blob-btn:hover, .percent-button:hover {
+  background: #35363c !important;
+  color: #fff !important;
+  border-color: #444 !important;
+  box-shadow: 0 2px 8px #0006 !important;
+  transform: scale(1.05);
+}
+
+.percent-button.selected, .nav-blob-btn.selected, .nav-blob-btn.text-blue-500 {
+  background: #23232a !important;
+  color: #f3f4f6 !important;
+  border-color: #333 !important;
+}
+
+/* Исправить стили для LONG/SHORT */
+.btn-long, .btn-long:hover {
+  background: #22c55e !important;
+  color: #18181b !important;
+  border: none !important;
+}
+.btn-short, .btn-short:hover {
+  background: #ef4444 !important;
+  color: #18181b !important;
+  border: none !important;
+}
+
+.crypto-card {
+  background-color: #23232a;
+  color: #f3f4f6;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px #0008;
+  margin: 0 auto 12px auto;
+  max-width: 100%;
+}
+
+canvas {
+  max-width: 100%;
+  height: 180px !important;
+  background: #18181b;
+  border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+  .max-w-md {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .text-xl {
+    font-size: 1.1rem;
+  }
+  button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Blob Button Styles */
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.buttons {
+  text-align: center;
+  border-radius: 30px;
+}
+
+.blob-btn {
+  z-index: 1;
+  position: relative;
+  padding: 15px 30px;
+  margin: 0 5px 10px 5px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #0505A9;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: color 0.5s;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.blob-btn:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #0505A9;
+  border-radius: 30px;
+}
+
+.blob-btn:after {
+  content: "";
+  z-index: -2;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s 0.2s;
+  border-radius: 30px;
+}
+
+.blob-btn:hover {
+  color: #FFFFFF;
+  border-radius: 30px;
+}
+
+.blob-btn:hover:after {
+  transition: all 0.3s;
+  left: 0;
+  top: 0;
+  border-radius: 30px;
+}
+
+.blob-btn__inner {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: #ffffff;
+}
+
+.blob-btn__blobs {
+  position: relative;
+  display: block;
+  height: 100%;
+  filter: url('#goo');
+}
+
+.blob-btn__blob {
+  position: absolute;
+  top: 2px;
+  width: 25%;
+  height: 100%;
+  background: #0505A9;
+  border-radius: 100%;
+  transform: translate3d(0, 150%, 0) scale(1.7);
+  transition: transform 0.45s;
+}
+
+@supports(filter: url('#goo')) {
+  .blob-btn__blob {
+    transform: translate3d(0, 150%, 0) scale(1.4);
+  }
+}
+
+.blob-btn__blob:nth-child(1) {
+  left: 0%;
+  transition-delay: 0s;
+}
+
+.blob-btn__blob:nth-child(2) {
+  left: 30%;
+  transition-delay: 0.08s;
+}
+
+.blob-btn__blob:nth-child(3) {
+  left: 60%;
+  transition-delay: 0.16s;
+}
+
+.blob-btn__blob:nth-child(4) {
+  left: 90%;
+  transition-delay: 0.24s;
+}
+
+.blob-btn:hover .blob-btn__blob {
+  transform: translateZ(0) scale(1.7);
+}
+
+@supports(filter: url('#goo')) {
+  .blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.4);
+  }
+}
+
+/* Adjustments for navigation buttons */
+.nav-blob-btn {
+  padding: 10px 20px;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* Chart Card Styles (Adapted from Crypto Dashboard Example) */
+.crypto-card {
+  background-color: #162447;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.crypto-card:hover {
+  transform: scale(1.05);
+}
+
+.crypto-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+canvas {
+  max-width: 100%;
+  height: 200px !important;
+}
+
+/* Минимизируем отступ между блоком ставок и навигацией */
+.bg-white.rounded-2xl.shadow-lg.mb-6 {
+  margin-bottom: 0 !important;
+}
+
+.flex.justify-around.p-4.bg-white.shadow.rounded-xl {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: 0 2px 8px #0006 !important;
+}
+
+/* Убираем margin-bottom у блока ставок, если есть */
+.bg-white.rounded-2xl.shadow-lg {
+  margin-bottom: 0 !important;
+}
+
+.percent-button {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, rgba(99,48,222,0.25) 0%, rgba(76,212,233,0.18) 60%, rgba(30,32,33,0.9) 100%),
+    linear-gradient(120deg, rgba(255,255,255,0.08) 0%, rgba(99,48,222,0.12) 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1em;
+  border: 1.5px solid #444;
+  box-shadow: 0 0 16px 2px #6fd6ff44, 0 2px 12px #000a inset;
+  margin: 0 12px;
+  position: relative;
+  transition: all .4s cubic-bezier(.4,2,.3,1);
+  letter-spacing: .1em;
+  z-index: 1;
+  text-shadow: 0 2px 8px #000a;
+  overflow: hidden;
+}
+
+.percent-button:before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  width: 26px;
+  height: 10px;
+  background: linear-gradient(90deg,rgba(255,255,255,0.18),rgba(255,255,255,0.02));
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.7;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.percent-button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 32px 8px #6fd6ff33, 0 0 0 2px #fff1 inset;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.percent-button:hover {
+  background: radial-gradient(circle at 60% 40%, #e9007a 0%, #6fd6ff 80%, #23232a 100%);
+  border: 1.5px solid #fff;
+  color: #fff;
+  box-shadow: 0 0 32px 8px #e9007a99, 0 4px 24px #000a inset;
+  letter-spacing: .18em;
+  filter: brightness(1.15) saturate(1.2);
+}
+
+@keyframes stripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 0; }
+}
+
+.percent-button.selected, .percent-button.selected:hover {
+  border-radius: 25px 25px 25px 7px !important;
+  border: 2px solid #fff !important;
+  color: #fff !important;
+  background: #ff0033 !important;
+  /* Уменьшаем неоновую подсветку */
+  box-shadow: 0 0 5px 2px rgba(255, 0, 51, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+  /* Убираем яркие эффекты фильтров */
+  filter: none !important;
+  letter-spacing: .18em !important;
+  position: relative !important;
+  z-index: 3 !important;
+  transition: all .5s cubic-bezier(.4,2,.3,1) !important;
+}
+
+.percent-button.selected:after, .percent-button.selected:hover:after {
+  display: none !important;
+}
+
+/* Стили для кнопок в состоянии ожидания */
+.blob-btn[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: #444 !important;
+  color: #aaa !important;
+}
+
+.percent-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #333 !important;
+  color: #888 !important;
+  box-shadow: none !important;
+}
+
+/* Стили для графика и его взаимодействия */
+.chart-container {
+  position: relative;
+  touch-action: none; /* Предотвращает стандартные жесты браузера */
+}
+
+canvas {
+  max-width: 100%;
+  height: 200px !important;
+  touch-action: none; /* Важно для работы жестов на мобильных устройствах */
+}
+
+/* Стили для боковой панели с ценой */
+.price-tooltip {
+  position: absolute;
+  right: 10px;
+  background: #23232add;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 20;
+  box-shadow: 0 2px 8px #0006;
+  opacity: 0.95;
+  transition: background-color 0.3s ease;
+}
+
+.price-tooltip.win {
+  background: #22c55e;
+}
+
+.price-tooltip.lose {
+  background: #ef4444;
+}
+
+/* Анимации для плавного появления элементов */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Стили для кнопок выбора диапазона */
+.range-button {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.range-button.active {
+  background: #e94560;
+  color: white;
+}
+
+.range-button:not(.active) {
+  background: #2a2a30;
+  color: #aaa;
+}
+
+/* Анимация пульсации для таймера */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.timer-pulse {
+  animation: pulse 1s infinite;
+}
+
+
+
